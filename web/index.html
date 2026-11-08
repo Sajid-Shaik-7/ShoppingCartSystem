@@ -916,8 +916,12 @@ function doLogout() {
   appliedCoupon = "";
   selectedOrderRow = -1;
   document.getElementById("loginPage").classList.remove("hidden");
-  document.getElementById("shopPage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
+  const sp = document.getElementById("shopPage");
+  sp.classList.add("hidden");
+  sp.style.display = "none";
+  const ap = document.getElementById("adminPage");
+  ap.classList.add("hidden");
+  ap.style.display = "none";
   document.getElementById("loginUser").value = "";
   document.getElementById("loginPass").value = "";
   toast("Logged out successfully.", "info");
