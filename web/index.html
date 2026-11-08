@@ -276,9 +276,6 @@ body {
 /* ============================================
    SHOPPING PAGE
    ============================================ */
-#shopPage {
-  display: none;
-}
 .shop-layout {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -541,7 +538,7 @@ body {
 /* ============================================
    ADMIN PAGE
    ============================================ */
-#adminPage { display: none; }
+#adminPage { }
 .admin-layout { padding: 24px 32px; }
 .stats-grid {
   display: grid;
@@ -931,8 +928,11 @@ function doLogout() {
 // ============================================================
 function showShop() {
   document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("shopPage").classList.remove("hidden");
+  const sp = document.getElementById("shopPage");
+  sp.classList.remove("hidden");
+  sp.style.display = "block";
   document.getElementById("adminPage").classList.add("hidden");
+  document.getElementById("adminPage").style.display = "";
   document.getElementById("userBadge").textContent = "👤 " + currentUser.username;
   document.getElementById("myOrdersPanel").classList.add("hidden");
   document.getElementById("shopLayout").classList.remove("hidden");
@@ -944,7 +944,10 @@ function showShop() {
 function showAdmin() {
   document.getElementById("loginPage").classList.add("hidden");
   document.getElementById("shopPage").classList.add("hidden");
-  document.getElementById("adminPage").classList.remove("hidden");
+  document.getElementById("shopPage").style.display = "";
+  const ap = document.getElementById("adminPage");
+  ap.classList.remove("hidden");
+  ap.style.display = "block";
   document.getElementById("adminBadge").textContent = "👤 " + currentUser.username + " (Admin)";
   renderAdminStats();
   renderAdminOrders();
