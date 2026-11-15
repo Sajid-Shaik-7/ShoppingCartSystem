@@ -1,0 +1,17 @@
+# Java compiled files
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# Vercel
+.vercel/
+node_modules/
